@@ -7,14 +7,12 @@ To create your own Power virtual server instance image, you should fork this rep
   1. Verify that your custom image is publicly available in all supported regions.
   2. Verify that you have Manager service access role for IBM Cloud Schematics.
   3. Review and Verify the Identity and Access Management (IAM) information at [Managing Power Systems Virtual Servers (IAM)](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-managing-resources-and-users).
-  4. Create a public and private SSH key that you can use to securely connect to your Power Systems Virtual Server. To create a public and private SSH key, see [Adding an SSH key](https://cloud.ibm.com/docs/ssh-keys?topic=ssh-keys-adding-an-ssh-key).
-  5. You cannot create a private network during the VM provisioning process. You must first use the Power Systems Virtual Server user interface, command line interface (CLI), or application programming interfaced (API) to [create one](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-configuring-subnet).
 
 ## Required resources
 
   * Create a Power Systems Virtual Server Instance. For more information, see [Getting started with IBM Power Systems Virtual Servers](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-getting-started).  
-  * Create a [SSH key](https://www.ibm.com/docs/en/power-systems-vs?topic=aix-creating-virtual-machine-vm-ssh-keys-root-login).   
-  * Create a [Network](https://www.ibm.com/docs/en/power-systems-vs?topic=networking-configuring-adding-private-network-subnet).
+  * Create a public and private SSH key that you can use to securely connect to your Power Systems Virtual Server. To create a public and private SSH key, see [Adding an SSH key](https://cloud.ibm.com/docs/ssh-keys?topic=ssh-keys-adding-an-ssh-key).
+  * You cannot create a private network during the VM provisioning process. You must first use the Power Systems Virtual Server user interface, command line interface (CLI), or application programming interfaced (API) to [create one](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-configuring-subnet).
   
 ## Installing the software
 
@@ -28,7 +26,7 @@ If necessary, modify the optional configuration items related to [memory](https:
 
 ## Upgrading to a new version
 
-Run the image instance to install fixes or updates. Update and fix commands must be run from the OS itself.
+For information about applying updates and fixes, see [Downloading fixes and updates](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-downloading-fixes-updates) in the Power Systems Virtual Server documentation.
 
 ## Uninstalling the software
 
