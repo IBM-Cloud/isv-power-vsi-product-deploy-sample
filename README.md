@@ -4,14 +4,11 @@ To create your own Power virtual server instance image, you should fork this rep
 
 ## Before you begin
 
-  Verify that your custom image is publicly available in all supported regions.
-
-  Make sure that you have the following IBM Cloud Identity and Access Management (IAM) permissions:
-
-   * Manager service access role for IBM Cloud Schematics
-   * TODO: Need IAM Permissions for Power here...
-  
-  TODO: Anything else needed here?
+  1. Verify that your custom image is publicly available in all supported regions.
+  2. Verify that you have Manager service access role for IBM Cloud Schematics.
+  3. Review and Verify the Identity and Access Management (IAM) information at [Managing Power Systems Virtual Servers (IAM)](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-managing-resources-and-users).
+  4. Create a public and private SSH key that you can use to securely connect to your Power Systems Virtual Server. To create a public and private SSH key, see [Adding an SSH key](https://cloud.ibm.com/docs/ssh-keys?topic=ssh-keys-adding-an-ssh-key).
+  5. You cannot create a private network during the VM provisioning process. You must first use the Power Systems Virtual Server user interface, command line interface (CLI), or application programming interfaced (API) to [create one](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-configuring-subnet).
 
 ## Required resources
 
