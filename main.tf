@@ -5,7 +5,8 @@ data "ibm_pi_catalog_images" "catalog_images" {
 }
 
 locals {
-  catalog_image = [for x in data.ibm_pi_catalog_images.catalog_images.images : x if x.name == var.public_image_name]
+  public_image_name = "7200-05-01"
+  catalog_image = [for x in data.ibm_pi_catalog_images.catalog_images.images : x if x.name == local.public_image_name]
 }
 
 data "ibm_pi_key" "key" {
