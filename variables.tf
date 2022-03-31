@@ -2,11 +2,6 @@ variable "crn" {
   type        = string
   description = "Power Systems Virtual Server CRN"
 }
-variable "public_image_name" {
-  type        = string
-  default     = "7200-05-01"
-  description = "The name of the stock image"
-}
 variable "memory" {
   type        = number
   default     = 4
@@ -34,9 +29,9 @@ variable "sys_type" {
 }
 variable "ssh_key_name" {
   type        = string
-  description = "The name of the public SSH RSA key to use when creating the instance"
+  description = "The name of the public SSH RSA key to use when creating the instance, as defined for the selected Power Systems Virtual Server CRN"
 }
 variable "network_name" {
   type        = string
-  description = "The network ID or name to assign to the instance"
+  description = "The network ID or name to assign to the instance, as defined for the selected Power Systems Virtual Server CRN"
 }
