@@ -5,7 +5,7 @@ data "ibm_pi_catalog_images" "catalog_images" {
 }
 
 locals {
-  public_image_name = "7200-05-01"
+  public_image_name = "7300-00-01"
   catalog_image = [for x in data.ibm_pi_catalog_images.catalog_images.images : x if x.name == local.public_image_name]
 }
 
@@ -28,7 +28,6 @@ resource "ibm_pi_instance" "instance" {
   pi_image_id          = local.catalog_image[0].image_id
   pi_key_pair_name     = data.ibm_pi_key.key.id
   pi_sys_type          = var.sys_type
-  pi_storage_type      = var.storage_type
   pi_network {
     network_id = data.ibm_pi_network.power_network.id
   }
