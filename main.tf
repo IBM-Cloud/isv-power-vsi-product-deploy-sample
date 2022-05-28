@@ -13,7 +13,6 @@ locals {
   catalog_image = [for x in data.ibm_pi_catalog_images.catalog_images.images : x if x.name == local.public_stock_image_name]
   cloud_inst_image = [for x in data.ibm_pi_images.cloud_instance_images.image_info : x if x.name == local.public_stock_image_name]
   stock_image_copy_id = length(local.cloud_inst_image) > 0 ? local.cloud_inst_image[0].id  : ""
-  found_instance = [for x in data.ibm_pi_instances.cloud_instance_instances.pvm_instances : x if x.name == var.instance_name]
 }
 
 data "ibm_pi_key" "key" {
@@ -27,7 +26,6 @@ data "ibm_pi_network" "power_network" {
 }
 
 resource "ibm_pi_image" "power_stock_image_copy" {
-  count = length(local.stock_image_copy_id) == 0 ? 1 : length(local.found_instance)
   pi_image_name       = local.public_stock_image_name
   pi_image_id         = local.catalog_image[0].image_id
   pi_cloud_instance_id = local.pid
