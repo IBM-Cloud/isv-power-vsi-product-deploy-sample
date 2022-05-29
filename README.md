@@ -1,6 +1,6 @@
 This directory contains the sample Terraform code to create a Power virtual server instance image. 
 
-To create your own Power virtual server instance image, you should fork this repository and then modify the local variable `public_image_name` in the file `main.tf` to reference your own publicly availble image.
+To create your own Power virtual server instance image, you should fork this repository and then modify the local variable `stock_image_name` in the file `main.tf` to reference your own publicly availble image.
 
 ## Before you begin
 
