@@ -1,6 +1,6 @@
 This directory contains the sample Terraform code to create a Power virtual server instance image. 
 
-To create your own Power virtual server instance image, you should fork this repository and then modify the local variable `public_image_name` in the file `main.tf` to reference your own publicly availble image.
+To create your own Power virtual server instance image, you should fork this repository and then modify the local variable `stock_image_name` in the file `main.tf` to reference your own publicly availble image.
 
 ## Before you begin
 
@@ -22,7 +22,7 @@ To install the software, configure the following required variables:
   * Enter an SSH Key Name for the selected server instance
   * Enter a Network Name or ID for the selected server instance.  
 
-If necessary, modify the optional configuration items related to [memory](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/pi_instance#pi_memory), [processors](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/pi_instance#pi_processors), [processor type](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/pi_instance#pi_proc_type), and [system type](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/pi_instance#pi_sys_type).
+If necessary, modify the optional configuration items related to [memory](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/pi_instance#pi_memory), [processors](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/pi_instance#pi_processors), [processor type](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/pi_instance#pi_proc_type), [storage type](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/pi_instance#pi_storage_type) and [system type](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/pi_instance#pi_sys_type).
 
 ## Upgrading to a new version
 
