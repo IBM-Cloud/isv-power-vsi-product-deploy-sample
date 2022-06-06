@@ -2,6 +2,11 @@ variable "crn" {
   type        = string
   description = "Power Systems Virtual Server CRN"
 }
+variable "region" {
+  type        = string
+  default     = "dal"
+  description = "The region that belongs to the PowerVS instance"
+}
 variable "license_repository_capacity" {
   type        = number
   default     = 1
