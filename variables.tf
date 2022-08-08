@@ -14,7 +14,7 @@ variable "license_repository_capacity" {
 }
 variable "memory" {
   type        = number
-  default     = 16
+  default     = 18
   description = "The amount of memory that you want to assign to your VTL in gigabytes.  Use the following formula: memory >= 16 + (2 * license_repository_capacity)"
 }
 variable "processors" {
@@ -46,11 +46,11 @@ variable "ssh_key_name" {
   type        = string
   description = "The name of the public SSH RSA key to use when creating the VTL instance, as defined for the selected Power Systems Virtual Server CRN"
 }
-variable "network_name_priv" {
+variable "private_network" {
   type        = string
   description = "The private network ID or name to assign to the VTL instance, as defined for the selected Power Systems Virtual Server CRN"
 }
-variable "network_name_pub" {
+variable "public_network" {
   type        = string
   description = "The public network ID or name to assign to the VTL instance, as defined for the selected Power Systems Virtual Server CRN"
 }
