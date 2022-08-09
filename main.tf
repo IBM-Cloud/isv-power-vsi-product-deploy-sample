@@ -26,14 +26,19 @@ data "ibm_pi_key" "key" {
   pi_key_name          = var.ssh_key_name
 }
 
-data "ibm_pi_network" "private_network" {
+data "ibm_pi_network" "network_1" {
   pi_cloud_instance_id = local.pid
-  pi_network_name      = var.private_network
+  pi_network_name      = var.network_1
 }
 
-data "ibm_pi_network" "public_network" {
+data "ibm_pi_network" "network_2" {
   pi_cloud_instance_id = local.pid
-  pi_network_name      = var.public_network
+  pi_network_name      = var.network_2
+}
+
+data "ibm_pi_network" "network_3" {
+  pi_cloud_instance_id = local.pid
+  pi_network_name      = var.network_3
 }
 
 resource "ibm_pi_image" "stock_image_copy" {
@@ -58,10 +63,13 @@ resource "ibm_pi_instance" "instance" {
   pi_sys_type          = var.sys_type
   pi_storage_type      = var.storage_type
   pi_network {
-    network_id = data.ibm_pi_network.public_network.id
+    network_id = data.ibm_pi_network.network_1.id
   }
   pi_network {
-    network_id = data.ibm_pi_network.private_network.id
+    network_id = data.ibm_pi_network.network_2.id
+  }
+  pi_network {
+    network_id = data.ibm_pi_network.network_3.id
   }
   pi_license_repository_capacity = var.license_repository_capacity
 }

@@ -47,15 +47,20 @@ variable "ssh_key_name" {
   default     = ""
   description = "The name of the public SSH RSA key to use when creating the VTL instance, as defined for the selected Power Systems Virtual Server CRN"
 }
-variable "private_network" {
+variable "network_1" {
   type        = string
   default     = ""
-  description = "The private network ID or name to assign to the VTL instance, as defined for the selected Power Systems Virtual Server CRN"
+  description = "The first network ID or name to assign to the VTL instance, as defined for the selected Power Systems Virtual Server CRN"
 }
-variable "public_network" {
+variable "network_2" {
   type        = string
   default     = ""
-  description = "The public network ID or name to assign to the VTL instance, as defined for the selected Power Systems Virtual Server CRN"
+  description = "The second network ID or name to assign to the VTL instance, as defined for the selected Power Systems Virtual Server CRN"
+}
+variable "network_3" {
+  type        = string
+  default     = ""
+  description = "The third network ID or name to assign to the VTL instance, as defined for the selected Power Systems Virtual Server CRN"
 }
 variable "placement_group" {
   type        = string
