@@ -52,8 +52,6 @@ resource "ibm_pi_image" "stock_image_copy" {
 resource "ibm_pi_instance" "instance" {
   pi_cloud_instance_id = local.pid
   pi_placement_group_id = local.placement_group_id
-  pi_affinity_policy   = var.affinity_policy
-  pi_anti_affinity_instances = [var.pvm_instances]
   pi_memory            = var.memory
   pi_processors        = var.processors
   pi_instance_name     = var.instance_name
