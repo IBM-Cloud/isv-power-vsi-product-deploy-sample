@@ -33,7 +33,7 @@ locals {
   private_image_id = length(local.private_image) > 0 ? local.private_image[0].id  : ""
   placement_group = [for x in data.ibm_pi_placement_groups.cloud_instance_groups.placement_groups : x if x.name == var.placement_group]
   placement_group_id = length(local.placement_group) > 0 ? local.placement_group[0].id : ""
-  options {
+  options = {
     pi_key_pair_name = length(data.ibm_pi_key.key) > 0 ? data.ibm_pi_key.key.id : ""
     pi_affinity_policy = length(var.affinity_policy) > 0 ? var.affinity_policy : ""
     pi_affinity_instances = length(var.pvm_instances) > 0 ? [var.pvm_instances] : ""
