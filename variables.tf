@@ -74,6 +74,6 @@ variable "affinity_policy" {
 }
 variable "pvm_instances" {
   type        = list(string)
-  default     = ""
+  default     = []
   description = "The list of PVM instance IDs to base storage anti-affinity policy against, as defined for the selected Power Systems Virtual Server CRN"
 }
