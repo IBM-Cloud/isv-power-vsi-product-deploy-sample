@@ -57,13 +57,23 @@ resource "ibm_pi_instance" "instance" {
   pi_anti_affinity_instances = length(var.pvm_instances) > 0 ? [var.pvm_instances] : null
   pi_placement_group_id = local.placement_group_id
   pi_license_repository_capacity = var.license_repository_capacity
-  pi_network {
-    network_id = data.ibm_pi_network.network_1.id
+  dynamic "pi_network" {
+    for_each = data.ibm_pi_network.network_1 == null ? [] : [1]
+    content {
+      network_id = data.ibm_pi_network.network_1.id
+    }
   }
-  pi_network {
-    network_id = data.ibm_pi_network.network_2.id
+  dynamic "pi_network" {
+    for_each = data.ibm_pi_network.network_2 == null ? [] : [1]
+    content {
+      network_id = data.ibm_pi_network.network_2.id
+    }
   }
-  pi_network {
-    network_id = data.ibm_pi_network.network_3.id
+  dynamic "pi_network" {
+    for_each = data.ibm_pi_network.network_3 == null ? [] : [1]
+    content {
+      network_id = data.ibm_pi_network.network_3.id
+    }
   }
+
 }
