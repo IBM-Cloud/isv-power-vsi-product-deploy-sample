@@ -10,7 +10,7 @@ data "ibm_pi_placement_groups" "cloud_instance_groups" {
   pi_cloud_instance_id = local.pid
 }
 data "ibm_pi_key" "key" {
-  count = var.ssh_key_name ? 1 : 0
+  count = length(var.ssh_key_name) > 0 ? 1 : 0
   pi_cloud_instance_id = local.pid
   pi_key_name          = var.ssh_key_name
 }
@@ -19,12 +19,12 @@ data "ibm_pi_network" "network_1" {
   pi_network_name      = var.network_1
 }
 data "ibm_pi_network" "network_2" {
-  count = var.network_2 ? 1 : 0
+  count = length(var.network_2) > 0 ? 1 : 0
   pi_cloud_instance_id = local.pid
   pi_network_name      = var.network_2
 }
 data "ibm_pi_network" "network_3" {
-  count = var.network_3 ? 1 : 0
+  count = length(var.network_3) > 0 ? 1 : 0
   pi_cloud_instance_id = local.pid
   pi_network_name      = var.network_3
 }
