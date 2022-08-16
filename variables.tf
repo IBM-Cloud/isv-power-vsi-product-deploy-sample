@@ -62,3 +62,13 @@ variable "placement_group" {
   default     = ""
   description = "The server placement group name where the VTL instance is placed, as defined for the selected Power Systems Virtual Server CRN"
 }
+variable "affinity_policy" {
+  type        = string
+  default     = "anti-affinity"
+  description = "The policy used when determining placement of the VTL volume based on an existing PVM instance ID (or comma-separated list of IDs)"
+}
+variable "pvm_instances" {
+  type        = string
+  default     = ""
+  description = "The list of PVM instance IDs to base storage anti-affinity policy against, as defined for the selected Power Systems Virtual Server CRN"
+}
