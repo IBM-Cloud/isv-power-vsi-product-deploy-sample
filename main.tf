@@ -10,6 +10,7 @@ data "ibm_pi_placement_groups" "cloud_instance_groups" {
   pi_cloud_instance_id = local.pid
 }
 data "ibm_pi_key" "key" {
+  count = var.ssh_key_name ? 1 : 0
   pi_cloud_instance_id = local.pid
   pi_key_name          = var.ssh_key_name
 }
@@ -18,11 +19,12 @@ data "ibm_pi_network" "network_1" {
   pi_network_name      = var.network_1
 }
 data "ibm_pi_network" "network_2" {
+  count = var.network_2 ? 1 : 0
   pi_cloud_instance_id = local.pid
   pi_network_name      = var.network_2
 }
 data "ibm_pi_network" "network_3" {
-  count = length(var.network_3) > 0 ? 1 : 0
+  count = var.network_3 ? 1 : 0
   pi_cloud_instance_id = local.pid
   pi_network_name      = var.network_3
 }
@@ -58,20 +60,17 @@ resource "ibm_pi_instance" "instance" {
   pi_anti_affinity_instances = length(var.pvm_instances) > 0 ? split(",", var.pvm_instances) : null
   pi_placement_group_id = local.placement_group_id
   pi_license_repository_capacity = var.license_repository_capacity
-  dynamic "pi_network" {
-    for_each = data.ibm_pi_network.network_1 == null ? [] : [1]
-    content {
-      network_id = data.ibm_pi_network.network_1.id
-    }
+  pi_network {
+    network_id = data.ibm_pi_network.network_1.id
   }
   dynamic "pi_network" {
-    for_each = data.ibm_pi_network.network_2 == null ? [] : [1]
+    for_each = var.network_2 == "" ? [] : [1]
     content {
       network_id = data.ibm_pi_network.network_2.id
     }
   }
   dynamic "pi_network" {
-    for_each = var.network_3 == null ? [] : [1]
+    for_each = var.network_3 == "" ? [] : [1]
     content {
       network_id = data.ibm_pi_network.network_3.id
     }
