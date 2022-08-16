@@ -22,7 +22,7 @@ data "ibm_pi_network" "network_2" {
   pi_network_name      = var.network_2
 }
 data "ibm_pi_network" "network_3" {
-  count = 0
+  count = length(var.network_3) > 0 ? 1 : 0
   pi_cloud_instance_id = local.pid
   pi_network_name      = var.network_3
 }
@@ -71,7 +71,7 @@ resource "ibm_pi_instance" "instance" {
     }
   }
   dynamic "pi_network" {
-    for_each = data.ibm_pi_network.network_3 == null ? [] : [1]
+    for_each = var.network_3 == null ? [] : [1]
     content {
       network_id = data.ibm_pi_network.network_3.id
     }
