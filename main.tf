@@ -22,6 +22,7 @@ data "ibm_pi_network" "network_2" {
   pi_network_name      = var.network_2
 }
 data "ibm_pi_network" "network_3" {
+  count = 0
   pi_cloud_instance_id = local.pid
   pi_network_name      = var.network_3
 }
