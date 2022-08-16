@@ -73,7 +73,7 @@ variable "affinity_policy" {
   description = "The policy used when determining placement of the VTL volume based on an existing PVM instance ID (or comma-separated list of IDs)"
 }
 variable "pvm_instances" {
-  type        = string
+  type        = list(string)
   default     = ""
   description = "The list of PVM instance IDs to base storage anti-affinity policy against, as defined for the selected Power Systems Virtual Server CRN"
 }
